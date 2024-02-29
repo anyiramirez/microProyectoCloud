@@ -1,0 +1,12 @@
+[Unit]
+Description=Consul Service
+After=network.target
+
+# Node one con bootstrapo and as a Server 
+[Service]
+ExecStart=/usr/bin/consul agent -server -bootstrap-expect=1 -ui -bind=192.168.100.5 -client=0.0.0.0 -data-dir=/var/lib/consul -node=agent-one -enable-script-checks=true -config-dir=/etc/consul.d
+User=root
+Group=vagrant
+
+[Install]
+WantedBy=multi-user.target

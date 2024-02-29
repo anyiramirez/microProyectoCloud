@@ -1,0 +1,12 @@
+[Unit]
+Description=Intance Service
+After=network.target
+
+# Node one con bootstrapo and as a Server 
+[Service]
+ExecStart=node /home/vagrant/consul/app/index.js 3000
+User=root
+Group=vagrant
+
+[Install]
+WantedBy=multi-user.target

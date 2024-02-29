@@ -1,0 +1,13 @@
+[Unit]
+Description=Consul Service
+After=network.target
+
+# service Node two to be concetec to node one
+[Service]
+ExecStart=/usr/bin/consul agent -bind=192.168.100.6 -data-dir=/var/lib/consul -node=agent-two -enable-script-checks=true -config-dir=/etc/consul.d
+Restart=always
+User=root
+Group=consul
+
+[Install]
+WantedBy=multi-user.target
